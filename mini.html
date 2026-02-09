@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expense Tracker</title>
+    <style>
+        body{
+            background-color: #f5f714;
+        }
+     .tracker{
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 20px;
+        margin: 5px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.4;
+     }
+     .idea{
+        background-color: aqua;
+        color: black;
+        padding:10px;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 20px;
+        margin :5px;
+
+     }
+     .menu{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        border-radius: 15px;
+        background-color: aqua;
+        padding: 10px;
+        gap:20px;
+     }
+     .menu h2{
+        margin-bottom: 10px;
+        font-size: 18px;
+     }
+     .category, .amount, .chart{
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        width: 30%;
+        height: 200px;
+        box-shadow: 0 5px 15px grey;
+     }
+     .click{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+     }
+     .bigbtn{
+        width:70px;
+        height:70px;
+        border-radius: 50%;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 36px;
+        border: none;
+        cursor: pointer;
+     }
+     .bigbtn:hover{
+        background-color: #45a049;
+     }
+     .hint{
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        margin-top: 6px;
+     }
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Expense Tracker App -->
+
+
+    <div class="tracker">
+        <h2>Current spending: ₹18,500</h2>
+        <h2>Previous spending: ₹15,000</h2>
+    <label for="month">Financial Period:</label>
+       <input type="month" id="month" name="month">
+           
+    </div>
+    <div class="idea">
+        <h2>Track your monthly spending easily</h2>
+    </div>
+
+<div class="menu">
+
+    <div class="category">
+    <h2>Total Spent
+    </h2>
+    <label for="spent">choose category</label>
+    <input type="text" id="spent" list="categories" style="width: 85%;">
+    <datalist id="categories">
+        <option value="Food">₹5000</option>
+        <option value="Transport">₹3000</option>
+        <option value="Entertainment">₹2000</option>
+        <option value="Utilities">₹1500</option>
+        <option value="Shopping">₹4000</option>
+        <option value="Health">₹1000</option>
+        <option value="Education">2000</option>
+    
+    </div>
+
+    <div class ="amount">
+        <h2>Highest category
+        </h2>
+        <label for="highest">choose highest spent category</label>
+        <input type="text" id="highest" list="highestspent" style="width: 85%;">
+        <datalist id="highestspent">
+        <option value="Food">₹5000</option>
+        <option value="Shopping">₹4000</option>
+        <option value="Transport">₹3000</option>
+        </datalist>
+
+    </div>
+
+    <div class="chart">
+        <h2>Current Month</h2>
+       <label for="use">month summary</label>
+       <input type="text" id="use" list="summary" style="width: 80%;">
+         <datalist id="summary">
+            <option value="salary credited">₹50,000</option>
+            <option value="spendings">₹18,500</option>
+            <option value="savings">₹20,000</option>
+            <option value="investments">₹10,000</option>
+            <option value="Donations">₹1,500</option>
+        </datalist>
+        </div>
+
+</div>
+
+<div class="click">
+
+        <button type="button" class="bigbtn">+</button>
+        <p class="hint"> Add Custom Expense</p>
+    </div>
+    
+     
+</body>
+</html>
