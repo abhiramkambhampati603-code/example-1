@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Manager</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .manager{
+            background-color: aqua;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width:350px;
+            height: fit-content;
+        }
+
+        h1{
+            text-align: center;
+
+        }
+        input {
+            width: 70%;
+            padding: 8pxs;
+        }
+        button {
+            padding: 8px ;
+            margin-left: 10px;
+            cursor: pointer;
+            border:none;
+            background-color: #007BFF;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        li{
+            background-color: tomato;
+            padding:8px;
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+         .dark .manager{
+             background-color:#121212
+         }
+         .dark li{
+             background-color:#333
+         }
+    </style>
+</head>
+<body id="body" class="dark">
+    <div class="manager">
+
+    <h1>Smart Task Manager</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+
+    <button onclick="addTask()">Add Task</button>
+    <ul id ="list">
+
+    </ul>
+    <p id="task">  </p>
+
+     <p>Total Tasks:<span id ="total">0</span></p>
+     <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    </div>
+
+    <script>
+        let totaltask =[];
+
+        function addTask(){
+        let taskinput = document.getElementById('taskInput')
+        let task = document.getElementById('task');
+        let list = document.getElementById('list');
+        let value = taskinput.value;
+        if(value.trim() === "")
+        {
+            task.innerHTML = "Please write a task";
+            return
+        }
+        
+        totaltask.push(value);
+        console.log(totaltask);
+        taskinput.value = "";
+        task.innerHTML = "";
+        dispalyTask();
+    }
+     function dispalyTask(){
+        let list = document.getElementById('list')
+        let value =totaltask.length;
+        list.innerHTML = "";
+        for(let i=0; i<value; i++)
+        {
+            let li = document.createElement('li');
+            li.innerHTML = totaltask[i] + `<button onclick="completeTask(this)">Complete</button>`+`<button onclick="deleteTask(`+i+`)">Delete</button>`;
+
+            list.appendChild(li);
+        }
+       total.innerHTML = value;
+        
+     }
+
+
+     function completeTask(button){
+        let li = button.parentElement;
+        li.style.textDecoration = "line-through";
+        button.disabled = true;
+     }
+
+     
+     function toggleDarkMode(){
+        let body = document.getElementById('body');
+        if(body.classList.contains('dark'))
+        {
+            body.classList.remove('dark');
+        }
+        else{
+            body.classList.add('dark');
+        }
+     }
+     
+    
+
+    
+
+    </script>
+</body>
+</html>
